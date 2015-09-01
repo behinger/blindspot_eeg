@@ -9,7 +9,9 @@ http://www.jneurosci.org/content/35/19/7403.abstract
 Disclaimer: These scripts are unorganized, incomplete and not as good documented as they could/should be
 
 I put them online anyway because 
+
   a) I'm interested in all mistakes I made! Please tell me so I can act accordingly!
+  
   b) It might be interesting for other scientists/data analysts to see how we used TFCE/LIMO
   
 I am very open for suggestions, comments and questions.
