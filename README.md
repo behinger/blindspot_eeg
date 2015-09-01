@@ -10,11 +10,14 @@ Disclaimer: These scripts are unorganized, incomplete and not as good documented
 
 I put them online anyway because 
 
-  a) I'm interested in all mistakes I made! Please tell me so I can act accordingly!
+    * I'm interested in all mistakes I made! Please tell me so I can act accordingly!
+    
+    * It might be interesting for other scientists/data analysts to see how we used TFCE/LIMO
   
-  b) It might be interesting for other scientists/data analysts to see how we used TFCE/LIMO
-  
+
 I am very open for suggestions, comments and questions.
+
+***If you make use of this source I would be very happy if you could cite my work accordingly.***
 
 
 Here is a short description of the analysis pipeline, followed by a description of the LIMO statistical stages.
