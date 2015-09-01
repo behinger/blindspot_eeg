@@ -1,10 +1,14 @@
 # blindspot_eeg
 Published in JoN 2015
 
+Predictions of Visual Content across Eye Movements and Their Modulation by Inferred Information
+
+    Benedikt V. Ehinger,  Peter König and José P. Ossandón
+http://www.jneurosci.org/content/35/19/7403.abstract
 Disclaimer: These scripts are unorganized, incomplete and not as good documented as they could/should be
 
 I put them online anyway because 
-  a) I'm interested whether I made any mistakes that can influence my conclusions I drew from the data
+  a) I'm interested in all mistakes I made! Please tell me so I can act accordingly!
   b) It might be interesting for other scientists/data analysts to see how we used TFCE/LIMO
   
 I am very open for suggestions, comments and questions.
@@ -50,4 +54,25 @@ are epoched and baseline corrected
 
 
 ==LIMO==
-t.b.d.
+  1. run bs_limo_Generate(subjToRun, flagIdx, runlocal)
+      This does several key things:
+          a) LIMO = bs_limo_defineLIMO('subject',subjList{subj},'dataDir',data_merge);
+              % Defines the LIMO Structure with all paths, options etc.
+
+          b) LIMO = bs_limo_designMat(LIMO,'full','yes','stim',opt.stim,'interaction','full');
+              % calculates the designmatrix, I added custom descriptions to all my predictors just to know which ones are actualy which
+          c) limo_eeg(4) %run the actual GLM fit
+          
+
+
+  2. run bs_eeg_processMainGroup
+      This runs the statistics for each predictor over subject (i.e. second level statistics, t-test in our case)
+          a) bs_limo_generate2ndLIMO
+              % Defines the second level LIMO structure
+          b) bs_limo_ttestContrast, bs_limo_interactionContrast,bs_limo_interactionContrast_three_way,bs_limo_interactionContrast_four_way,
+            run the actual ttests
+  3. run bs_limo_tfceGrid
+        This is actually very ugly, I call my custom plotting function, which internally calls the multiple comparison correction of choice (TFCE here) and saves the multiple comparison correction. As LIMO saves all permutation t-test values beforehand, the TFCE calculation is comparably quick. the plotting function is: bs_limo_display_resultsV2 interesting parts start from L137, basically I call: bs_limo_tfceCalc and then save the result
+        TLDR; run bs_limo_tfceCalc
+          
+  4. I visualize the results using bs_limo_display_resultsV4
